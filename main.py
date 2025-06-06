@@ -169,7 +169,7 @@ def gr_reverse(s):
     return reverse(s)
 
 def gr_palindromes(s):
-    return palindromes(s)
+    return str(palindromes(s))
 
 def gr_remove_dup(s):
     return remove_dup(s)
@@ -178,34 +178,35 @@ def gr_lengthOfLastWord(s):
     return lengthOfLastWord(s)
 
 def gr_canConstruct(ransomNote, magazine):
-    return canConstruct(ransomNote, magazine)
+    return str(canConstruct(ransomNote, magazine))
 
-with gr.Blocks() as demo:
-    gr.Markdown("## print_names")
-    gr.Interface(fn=gr_print_names, inputs=None, outputs="text").render()
-
-    gr.Markdown("## print_12x12")
-    gr.Interface(fn=gr_print_12x12, inputs=None, outputs="text").render()
-
-    gr.Markdown("## reverse")
-    gr.Interface(fn=gr_reverse, inputs="text", outputs="text").render()
-
-    gr.Markdown("## palindromes")
-    gr.Interface(fn=gr_palindromes, inputs="text", outputs="bool").render()
-
-    gr.Markdown("## remove_dup")
-    gr.Interface(fn=gr_remove_dup, inputs="text", outputs="text").render()
-
-    gr.Markdown("## lengthOfLastWord")
-    gr.Interface(fn=gr_lengthOfLastWord, inputs="text", outputs="number").render()
-
-    gr.Markdown("## canConstruct")
-    gr.Interface(
-        fn=gr_canConstruct,
-        inputs=[gr.Textbox(label="ransomNote"), gr.Textbox(label="magazine")],
-        outputs="bool"
-    ).render()
 
 if __name__ == "__main__":
+    with gr.Blocks() as demo:
+        gr.Markdown("## print_names")
+        gr.Interface(fn=gr_print_names, inputs=None, outputs="text", flagging_mode="never")
+
+        gr.Markdown("## print_12x12")
+        gr.Interface(fn=gr_print_12x12, inputs=None, outputs="text", flagging_mode="never")
+
+        gr.Markdown("## reverse")
+        gr.Interface(fn=gr_reverse, inputs="text", outputs="text", flagging_mode="never")
+
+        gr.Markdown("## palindromes")
+        gr.Interface(fn=gr_palindromes, inputs="text", outputs="text", flagging_mode="never")
+
+        gr.Markdown("## remove_dup")
+        gr.Interface(fn=gr_remove_dup, inputs="text", outputs="text", flagging_mode="never")
+
+        gr.Markdown("## lengthOfLastWord")
+        gr.Interface(fn=gr_lengthOfLastWord, inputs="text", outputs="number", flagging_mode="never")
+
+        gr.Markdown("## canConstruct")
+        gr.Interface(
+            fn=gr_canConstruct,
+            inputs=[gr.Textbox(label="ransomNote"), gr.Textbox(label="magazine")],
+            outputs="text", flagging_mode="never"
+        )
+
     demo.launch()
 
