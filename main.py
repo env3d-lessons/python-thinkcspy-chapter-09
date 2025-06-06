@@ -147,41 +147,40 @@ def canConstruct(ransomNote, magazine):
 ### DO NOT EDIT BELOW THIS LINE ###
 ### USER INTERFACE CODE BELOW ###
 
-import gradio as gr
-
-def gr_print_names():
-    import io, sys
-    old_stdout = sys.stdout
-    sys.stdout = mystdout = io.StringIO()
-    print_names()
-    sys.stdout = old_stdout
-    return mystdout.getvalue()
-
-def gr_print_12x12():
-    import io, sys
-    old_stdout = sys.stdout
-    sys.stdout = mystdout = io.StringIO()
-    print_12x12()
-    sys.stdout = old_stdout
-    return mystdout.getvalue()
-
-def gr_reverse(s):
-    return reverse(s)
-
-def gr_palindromes(s):
-    return str(palindromes(s))
-
-def gr_remove_dup(s):
-    return remove_dup(s)
-
-def gr_lengthOfLastWord(s):
-    return lengthOfLastWord(s)
-
-def gr_canConstruct(ransomNote, magazine):
-    return str(canConstruct(ransomNote, magazine))
-
-
 if __name__ == "__main__":
+    import gradio as gr
+
+    def gr_print_names():
+        import io, sys
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = io.StringIO()
+        print_names()
+        sys.stdout = old_stdout
+        return mystdout.getvalue()
+
+    def gr_print_12x12():
+        import io, sys
+        old_stdout = sys.stdout
+        sys.stdout = mystdout = io.StringIO()
+        print_12x12()
+        sys.stdout = old_stdout
+        return mystdout.getvalue()
+
+    def gr_reverse(s):
+        return reverse(s)
+
+    def gr_palindromes(s):
+        return str(palindromes(s))
+
+    def gr_remove_dup(s):
+        return remove_dup(s)
+
+    def gr_lengthOfLastWord(s):
+        return lengthOfLastWord(s)
+
+    def gr_canConstruct(ransomNote, magazine):
+        return str(canConstruct(ransomNote, magazine))
+
     with gr.Blocks() as demo:
         gr.Markdown("## print_names")
         gr.Interface(fn=gr_print_names, inputs=None, outputs="text", flagging_mode="never")
